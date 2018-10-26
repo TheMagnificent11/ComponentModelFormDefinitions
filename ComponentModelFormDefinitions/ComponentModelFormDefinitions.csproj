@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageProjectUrl>https://github.com/TheMagnificent11/entity-management</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/TheMagnificent11/componentmodelformdefinitions</PackageProjectUrl>
     <Authors>Saji Weerasingham</Authors>
     <Company>NA</Company>
     <Product>ComponentModelFormDefinitions</Product>
