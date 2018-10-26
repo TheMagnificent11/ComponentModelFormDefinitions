@@ -62,10 +62,10 @@ namespace ComponentModelFormDefinitions
 
         private static string GetLabel(PropertyInfo property)
         {
-            var attr = property.GetCustomAttribute<DescriptionAttribute>();
+            var attr = property.GetCustomAttribute<DisplayAttribute>();
             if (attr == null) return property.Name;
 
-            return attr.Description;
+            return attr.Name;
         }
 
         private static string GetInputType(PropertyInfo property)
