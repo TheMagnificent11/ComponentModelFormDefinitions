@@ -1,0 +1,19 @@
+# Editor configuration, see http://editorconfig.org
+root = true
+
+[*]
+end_of_line = CRLF
+charset = utf-8
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{json,scss}]
+indent_size = 2
+
+[*.{ts,js,html}]
+indent_size = 4
+
+[*.md]
+max_line_length = off
+trim_trailing_whitespace = false
