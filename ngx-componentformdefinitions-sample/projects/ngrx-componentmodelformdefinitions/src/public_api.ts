@@ -8,4 +8,4 @@ export * from './lib/form-definition';
 export * from './lib/form-definitions.init';
 export * from './lib/form-definitions.actions';
 export * from './lib/form-definitions.reducer';
-export * from './lib/ngrx-componentformdefinitions.module';
+export * from './lib/ngrx-componentmodelformdefinitions.module';

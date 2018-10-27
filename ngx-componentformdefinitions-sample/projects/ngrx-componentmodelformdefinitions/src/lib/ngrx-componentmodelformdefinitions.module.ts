@@ -17,4 +17,4 @@ import { FormDefinitionsEffects } from './form-definitions.effects';
     declarations: [],
     exports: []
 })
-export class NgrxComponentformdefinitionsModule { }
+export class NgrxComponentModelFormDefinitionsModule { }

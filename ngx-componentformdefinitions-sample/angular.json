@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-componentformdefinitions-sample": {
+    "ngx-componentmodelformdefinitions-sample": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-componentformdefinitions-sample",
+            "outputPath": "dist/ngx-componentmodelformdefinitions-sample",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-componentformdefinitions-sample:build"
+            "browserTarget": "ngx-componentmodelformdefinitions-sample:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-componentformdefinitions-sample:build:production"
+              "browserTarget": "ngx-componentmodelformdefinitions-sample:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-componentformdefinitions-sample:build"
+            "browserTarget": "ngx-componentmodelformdefinitions-sample:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "ngx-componentformdefinitions-sample-e2e": {
+    "ngx-componentmodelformdefinitions-sample-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "targets": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngx-componentformdefinitions-sample:serve"
+            "devServerTarget": "ngx-componentmodelformdefinitions-sample:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ngx-componentformdefinitions-sample:serve:production"
+              "devServerTarget": "ngx-componentmodelformdefinitions-sample:serve:production"
             }
           }
         },
@@ -122,33 +122,33 @@
         }
       }
     },
-    "ngrx-componentformdefinitions": {
-      "root": "projects/ngrx-componentformdefinitions",
-      "sourceRoot": "projects/ngrx-componentformdefinitions/src",
+    "ngrx-componentmodelformdefinitions": {
+      "root": "projects/ngrx-componentmodelformdefinitions",
+      "sourceRoot": "projects/ngrx-componentmodelformdefinitions/src",
       "projectType": "library",
       "prefix": "fd",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ngrx-componentformdefinitions/tsconfig.lib.json",
-            "project": "projects/ngrx-componentformdefinitions/ng-package.json"
+            "tsConfig": "projects/ngrx-componentmodelformdefinitions/tsconfig.lib.json",
+            "project": "projects/ngrx-componentmodelformdefinitions/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ngrx-componentformdefinitions/src/test.ts",
-            "tsConfig": "projects/ngrx-componentformdefinitions/tsconfig.spec.json",
-            "karmaConfig": "projects/ngrx-componentformdefinitions/karma.conf.js"
+            "main": "projects/ngrx-componentmodelformdefinitions/src/test.ts",
+            "tsConfig": "projects/ngrx-componentmodelformdefinitions/tsconfig.spec.json",
+            "karmaConfig": "projects/ngrx-componentmodelformdefinitions/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ngrx-componentformdefinitions/tsconfig.lib.json",
-              "projects/ngrx-componentformdefinitions/tsconfig.spec.json"
+              "projects/ngrx-componentmodelformdefinitions/tsconfig.lib.json",
+              "projects/ngrx-componentmodelformdefinitions/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -158,5 +158,5 @@
       }
     }
   },
-  "defaultProject": "ngx-componentformdefinitions-sample"
+  "defaultProject": "ngx-componentmodelformdefinitions-sample"
 }
