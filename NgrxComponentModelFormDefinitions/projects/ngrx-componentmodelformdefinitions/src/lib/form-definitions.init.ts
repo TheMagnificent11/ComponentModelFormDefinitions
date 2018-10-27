@@ -1,3 +1,4 @@
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { FormDefinition } from './form-definition';
 
 export interface FormsState {
@@ -11,3 +12,8 @@ export const initialState: FormsState = {
     formDefinition: null,
     error: null
 };
+
+export const getFormsState = createFeatureSelector<FormsState>('form-definitions');
+
+export const formDefinition = createSelector(getFormsState, (state: FormsState) => state.formDefinition);
+export const formDefinitionError = createSelector(getFormsState, (state: FormsState) => state.error);

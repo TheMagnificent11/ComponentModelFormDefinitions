@@ -18,11 +18,17 @@
       "dom"
     ],
     "paths": {
-      "ngrx-componentmodelformdefintions": [
-        "dist/ngrx-componentmodelformdefintions"
+      "ngrx-componentmodelformdefinitions": [
+        "dist/ngrx-componentmodelformdefinitions"
       ],
       "ngrx-componentmodelformdefintions/*": [
-        "dist/ngrx-componentmodelformdefintions/*"
+        "dist/ngrx-componentmodelformdefintitions/*"
+      ],
+      "ngrx-componentmodelformdefinitions-material": [
+        "dist/ngrx-componentmodelformdefinitions-material"
+      ],
+      "ngrx-componentmodelformdefinitions-material/*": [
+        "dist/ngrx-componentmodelformdefinitions-material/*"
       ]
     }
   }

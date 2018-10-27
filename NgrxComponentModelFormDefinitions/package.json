@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-lib": "ng build ngrx-componentmodelformdefinitions"
+    "build-libs": "ng build ngrx-componentmodelformdefinitions && ng build ngrx-componentmodelformdefinitions-material"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +21,8 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "@ng-dynamic-forms/core": "^6.2.0",
+    "@ng-dynamic-forms/ui-material": "^6.2.0",
     "@ngrx/effects": "^6.1.0",
     "@ngrx/store": "^6.1.0",
     "core-js": "^2.5.4",
