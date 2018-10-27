@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { takeWhile, filter, } from 'rxjs/operators';
@@ -15,16 +15,17 @@ export class FormComponent implements OnInit, OnDestroy {
 
     @Input('form-id') formId: string;
     @Input('submit-button-label') submitButtonLabel = 'Submit';
+    @Output() submit = new EventEmitter<Array<DynamicFormControlModel>>();
 
     isLoaded = false;
     formGroup: FormGroup;
+    formModel: Array<DynamicFormControlModel>;
 
     private alive = true;
-    private formModel: Array<DynamicFormControlModel>;
 
     constructor(
-        private store: Store<FormsState>,
-        private formService: DynamicFormService
+        public formService: DynamicFormService,
+        private store: Store<FormsState>
     ) { }
 
     ngOnInit() {
@@ -45,6 +46,10 @@ export class FormComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         this.alive = false;
+    }
+
+    onSubmit(): void {
+        this.submit.emit(this.formModel);
     }
 
     getInputStringValue(inputId: string): string {

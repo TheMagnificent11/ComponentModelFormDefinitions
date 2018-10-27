@@ -18,11 +18,15 @@
     "url": "https://github.com/TheMagnificent11/ngx-json-localstroage.git"
   },
   "peerDependencies": {
+    "@angular/animations": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/cdk": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/forms": "^6.0.0-rc.0 || ^6.0.0",
     "@ng-dynamic-forms/core": "^6.2.0",
     "@ng-dynamic-forms/ui-material": "^6.2.0",
     "@ngrx/store": "^6.1.0",
+    "angular2-text-mask": "^9.0.0",
     "ngrx-componentmodel-formdefinitions": "1.0.1"
   }
 }
