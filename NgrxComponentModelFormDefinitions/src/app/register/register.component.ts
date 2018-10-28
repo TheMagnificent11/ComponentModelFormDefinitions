@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { DynamicFormControlModel, DynamicFormService } from '@ng-dynamic-forms/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormComponent } from 'ngrx-componentmodelformdefinitions-material';
+import { RegistrationRequest } from './registration-request';
 
 @Component({
     selector: 'app-register',
@@ -8,13 +9,15 @@ import { DynamicFormControlModel, DynamicFormService } from '@ng-dynamic-forms/c
 })
 export class RegisterComponent implements OnInit {
 
-    constructor(private formService: DynamicFormService) { }
+    @ViewChild('form') form: FormComponent<RegistrationRequest>;
+
+    constructor() { }
 
     ngOnInit() {
     }
 
-    onSubmit(formModel: Array<DynamicFormControlModel>): void {
-        alert('yay');
+    onSubmit(request: RegistrationRequest): void {
+        alert(request.email);
     }
 
 }

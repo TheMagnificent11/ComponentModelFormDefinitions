@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { takeWhile, filter, } from 'rxjs/operators';
 import { DynamicFormControlModel, DynamicFormService, DynamicInputModel } from '@ng-dynamic-forms/core';
-import { FormsState, GetFormDefinitionAction, formDefinition } from 'ngrx-componentmodelformdefinitions';
+import { FormsState, GetFormDefinitionAction, FormDefinition, formDefinition } from 'ngrx-componentmodelformdefinitions';
 import { FormDefinitionConverter } from '../form-definition-converter';
 
 @Component({
@@ -11,17 +11,18 @@ import { FormDefinitionConverter } from '../form-definition-converter';
     templateUrl: './form.component.html',
     styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit, OnDestroy {
+export class FormComponent<T> implements OnInit, OnDestroy {
 
     @Input('form-id') formId: string;
     @Input('submit-button-label') submitButtonLabel = 'Submit';
-    @Output() submit = new EventEmitter<Array<DynamicFormControlModel>>();
+    @Output() submit = new EventEmitter<T>();
 
     isLoaded = false;
     formGroup: FormGroup;
     formModel: Array<DynamicFormControlModel>;
 
     private alive = true;
+    private formDef: FormDefinition;
 
     constructor(
         public formService: DynamicFormService,
@@ -36,6 +37,7 @@ export class FormComponent implements OnInit, OnDestroy {
                 filter(form => !!form)
             )
             .subscribe(resp => {
+                this.formDef = resp;
                 this.formModel = FormDefinitionConverter.convert(resp);
                 this.formGroup = this.formService.createFormGroup(this.formModel);
                 this.isLoaded = true;
@@ -49,16 +51,15 @@ export class FormComponent implements OnInit, OnDestroy {
     }
 
     onSubmit(): void {
-        this.submit.emit(this.formModel);
-    }
+        const request = {};
 
-    getInputStringValue(inputId: string): string {
-        const model = this.formService.findById(inputId, this.formModel) as DynamicInputModel;
-        if (!model) return null;
+        for (const field of this.formDef.fieldDefinitions) {
+            const formField = this.formService.findById(field.id, this.formModel) as DynamicInputModel;
+            if (!formField) continue;
+            request[field.id] = formField.value;
+        }
 
-        const val = model.value as string;
-
-        return val.trim();
+        this.submit.emit(request as T);
     }
 
 }

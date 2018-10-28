@@ -14,7 +14,7 @@ import { FormComponent } from './form/form.component';
         BrowserAnimationsModule,
         ReactiveFormsModule,
         StoreModule,
-        DynamicFormsCoreModule,
+        DynamicFormsCoreModule.forRoot(),
         DynamicFormsMaterialUIModule
     ],
     declarations: [FormComponent],
