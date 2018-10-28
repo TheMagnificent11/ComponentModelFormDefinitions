@@ -20,43 +20,18 @@ namespace ComponentModelFormDefinitions.SampleApi.Controllers
         private FormDefinitionManager Manager { get; }
 
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<FormDefinition>))]
-        public ActionResult<IEnumerable<FormDefinition>> GetAll()
-        {
-            var webModelsAssembly = GetWebModelsAssembly();
-            if (webModelsAssembly == null) return NotFound();
-
-            var formDefintions = new List<FormDefinition>();
-            var requestTypes = GetRequestTypes(webModelsAssembly);
-
-            requestTypes
-                .ToList()
-                .ForEach(i => formDefintions.Add(Manager.GetFormDefinition(i)));
-
-            return Ok(formDefintions);
-        }
-
-        [HttpGet]
         [Route("{formId}")]
         [ProducesResponseType(200, Type = typeof(FormDefinition))]
         [ProducesResponseType(404)]
         public ActionResult<FormDefinition> Get(string formId)
         {
-            var webModelsAssembly = GetWebModelsAssembly();
-            if (webModelsAssembly == null) return NotFound();
-
-            var requestType = GetRequestType(webModelsAssembly, formId);
+            var requestType = GetRequestType(Assembly.GetExecutingAssembly(), formId);
             if (requestType == null) return NotFound();
 
             var formDefintion = Manager.GetFormDefinition(requestType);
             if (formDefintion == null) return NotFound();
 
             return Ok(formDefintion);
-        }
-
-        private static Assembly GetWebModelsAssembly()
-        {
-            return Assembly.Load("Api.Models");
         }
 
         private static IEnumerable<Type> GetRequestTypes(Assembly assembly)
