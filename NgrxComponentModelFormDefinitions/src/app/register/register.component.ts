@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
     }
 
     onSubmit(request: RegistrationRequest): void {
+        if (!request) return;
         alert(request.email);
     }
 
