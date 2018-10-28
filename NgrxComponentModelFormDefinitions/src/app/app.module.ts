@@ -2,16 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { NgrxComponentModelFormDefinitionsModule, FORM_DEFINTIONS_API_ROUTE } from 'ngrx-componentmodelformdefinitions';
 import { NgrxComponentmodelformdefinitionsMaterialModule } from 'ngrx-componentmodelformdefinitions-material';
+import { NgxNetCoreApiModule, BASE_URL, AUTHORIZATION_TOKEN_SERVICE } from 'ngx-netcore-api';
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
+import { TokenService } from './token.service';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        RegisterComponent
-    ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
@@ -21,7 +20,26 @@ import { RegisterComponent } from './register/register.component';
                 component: RegisterComponent
             }
         ]),
-        NgrxComponentmodelformdefinitionsMaterialModule
+        NgrxComponentmodelformdefinitionsMaterialModule,
+        NgxNetCoreApiModule
+    ],
+    declarations: [
+        AppComponent,
+        RegisterComponent
+    ],
+    providers: [
+        {
+            provide: BASE_URL,
+            useValue: 'https://localhost:5001'
+        },
+        {
+            provide: FORM_DEFINTIONS_API_ROUTE,
+            useValue: 'formdefinitions'
+        },
+        {
+            provide: AUTHORIZATION_TOKEN_SERVICE,
+            useClass: TokenService
+        }
     ],
     bootstrap: [AppComponent]
 })
