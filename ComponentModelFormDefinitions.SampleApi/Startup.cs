@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.Net;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -53,6 +54,8 @@ namespace ComponentModelFormDefinitions.SampleApi
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            ConfigureProblemDetails(services);
+
             services.AddTransient<FormDefinitionManager>();
         }
 
@@ -75,6 +78,24 @@ namespace ComponentModelFormDefinitions.SampleApi
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = ApiName, Version = "v1" });
+            });
+        }
+
+        private static void ConfigureProblemDetails(IServiceCollection services)
+        {
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.InvalidModelStateResponseFactory = context =>
+                {
+                    var problemDetails = new ValidationProblemDetails(context.ModelState)
+                    {
+                        Instance = context.HttpContext.Request.Path,
+                        Status = (int)HttpStatusCode.BadRequest,
+                        Detail = "Please refer to the errors property for additional details"
+                    };
+
+                    return new BadRequestObjectResult(problemDetails);
+                };
             });
         }
     }
