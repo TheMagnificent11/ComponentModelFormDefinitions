@@ -1,5 +1,5 @@
 import { fakeAsync, tick } from '@angular/core/testing';
-import { FormDefinition } from 'form-definitions/form-definitions.module';
+import { FormDefinition } from 'ngrx-componentmodelformdefinitions';
 import { FormDefinitionConverter } from './form-definition-converter';
 
 describe('FormDefinitionConverter', () => {

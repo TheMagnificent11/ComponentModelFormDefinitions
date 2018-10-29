@@ -174,7 +174,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/ngrx-componentmodelformdefinitions-material/src/test.ts",
-            "tsConfig": "projects/ngrx-componentmodelformdefinitions-mngrx-componentmodelformdefinitionsaterial/tsconfig.spec.json",
+            "tsConfig": "projects/ngrx-componentmodelformdefinitions-material/tsconfig.spec.json",
             "karmaConfig": "projects/ngrx-componentmodelformdefinitions-material/karma.conf.js"
           }
         },
