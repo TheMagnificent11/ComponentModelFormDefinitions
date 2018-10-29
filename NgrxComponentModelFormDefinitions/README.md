@@ -1,27 +1,16 @@
-# NgxComponentformdefinitionsSample
+# ngrx-componentmodelformdefintions & ngrx-componentmodelformdefintions-material
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
+## Build Status
+TODO
 
-## Development server
+## Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+These NPM packages are designed to be used in conjunction with an ASP.Net Web API site.  The API site has a route that retrieves form defintions.  These definitions are generated using the `ComponentModelFormDefintions` NuGet package.
 
-## Code scaffolding
+`ngrx-componentmodelformdefintions` is an NGRX implemenation that retrieves those form defintions..
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`ngrx-componentmodelformdefintions-material` displays that form definition as a simple Angular Material form.  It uses the `@ng-dynamic-forms/core` and `@ng-dynamic-forms/ui-material` NPM packages under the covers.
 
-## Build
+## Gettings Started
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+See parent project [Readme](../README.md).
