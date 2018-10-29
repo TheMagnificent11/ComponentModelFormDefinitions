@@ -1,6 +1,6 @@
 {
   "name": "ngrx-componentmodelformdefinitions-material",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Angular module using NGRX to retrieve form definitions from ASP.Net Core API with the ComponentModelFormDefinitions NuGet package",
   "keywords": [
     "Angular6",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TheMagnificent11/ngx-json-localstroage.git"
+    "url": "https://github.com/TheMagnificent11/ComponentModelFormDefinitions.git"
   },
   "peerDependencies": {
     "@angular/animations": "^6.0.0-rc.0 || ^6.0.0",
