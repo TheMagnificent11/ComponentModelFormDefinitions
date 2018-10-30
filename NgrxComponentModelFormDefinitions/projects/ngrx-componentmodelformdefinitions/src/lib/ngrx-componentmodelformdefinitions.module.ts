@@ -10,7 +10,7 @@ import { FormDefinitionsEffects } from './form-definitions.effects';
 @NgModule({
     imports: [
         CommonModule,
-        StoreModule.forFeature('form-defs', formsReducer),
+        StoreModule.forFeature('form-definitions', formsReducer),
         EffectsModule.forFeature([FormDefinitionsEffects]),
         NgxNetCoreApiModule
     ],
