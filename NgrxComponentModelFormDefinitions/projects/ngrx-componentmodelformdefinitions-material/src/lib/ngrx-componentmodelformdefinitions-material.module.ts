@@ -23,4 +23,4 @@ import { FormComponent } from './form/form.component';
         FormComponent
     ]
 })
-export class NgrxComponentmodelformdefinitionsMaterialModule { }
+export class NgrxComponentmodelFormDefinitionsMaterialModule { }
