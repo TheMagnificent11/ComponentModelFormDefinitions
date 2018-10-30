@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/ngrx-componentmodelformdefinitions",
+  "dest": "../../dist/ngrx-componentmodelformdefinitions-material",
   "lib": {
     "entryFile": "src/public_api.ts"
   }

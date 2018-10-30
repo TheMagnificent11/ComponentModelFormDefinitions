@@ -1,5 +1,5 @@
 /*
- * Public API Surface of ngrx-componentformdefinitions
+ * Public API Surface of ngrx-componentmodelformdefinitions
  */
 
 export * from './lib/field-validation';
