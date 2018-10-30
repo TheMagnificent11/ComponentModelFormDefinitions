@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { NgrxComponentModelFormDefinitionsModule, FORM_DEFINTIONS_API_ROUTE } from 'ngrx-componentmodelformdefinitions';
-import { NgrxComponentmodelformdefinitionsMaterialModule } from 'ngrx-componentmodelformdefinitions-material';
+import { NgrxComponentmodelFormDefinitionsMaterialModule } from 'ngrx-componentmodelformdefinitions-material';
 import { NgxNetCoreApiModule, BASE_URL, AUTHORIZATION_TOKEN_SERVICE } from 'ngx-netcore-api';
 
 import { AppComponent } from './app.component';
@@ -25,7 +25,7 @@ import { TokenService } from './token.service';
         StoreModule.forRoot({}),
         EffectsModule.forRoot([]),
         NgrxComponentModelFormDefinitionsModule,
-        NgrxComponentmodelformdefinitionsMaterialModule,
+        NgrxComponentmodelFormDefinitionsMaterialModule,
         NgxNetCoreApiModule
     ],
     declarations: [
