@@ -1,6 +1,6 @@
 {
   "name": "ngrx-componentmodelformdefinitions-material",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Angular module using NGRX to retrieve form definitions from ASP.Net Core API with the ComponentModelFormDefinitions NuGet package",
   "keywords": [
     "Angular6",
