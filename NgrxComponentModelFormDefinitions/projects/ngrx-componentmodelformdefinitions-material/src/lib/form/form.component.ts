@@ -62,4 +62,11 @@ export class FormComponent<T> implements OnInit, OnDestroy {
         this.submit.emit(request as T);
     }
 
+    getFieldValue(fieldId: string): string | number | Date | string[] {
+        const formField = this.formService.findById(fieldId, this.formModel) as DynamicInputModel;
+        if (!formField) return null;
+
+        return formField.value;
+    }
+
 }
