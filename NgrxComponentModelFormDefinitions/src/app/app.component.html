@@ -1,1 +1,20 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container class="container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="menuOpen">
+        <mat-toolbar color="primary"></mat-toolbar>
+        <app-menu-items></app-menu-items>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div fxLyout="column">
+            <mat-toolbar color="primary">
+                <div fxShow.sm="true" fxShow.gt-md="false" fxShow="true">
+                    <button class="menu-button" mat-icon-button (click)="sidenav.toggle()">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                </div>
+            </mat-toolbar>
+        </div>
+        <div fxLayout="column" class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

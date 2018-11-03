@@ -1,7 +1,15 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {
+    MatButtonModule,
+    MatIconModule,
+    MatListModule,
+    MatSidenavModule,
+    MatToolbarModule
+} from '@angular/material';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { NgrxComponentModelFormDefinitionsModule, FORM_DEFINTIONS_API_ROUTE } from 'ngrx-componentmodelformdefinitions';
@@ -9,6 +17,7 @@ import { NgrxComponentmodelFormDefinitionsMaterialModule } from 'ngrx-componentm
 import { NgxNetCoreApiModule, BASE_URL, AUTHORIZATION_TOKEN_SERVICE } from 'ngx-netcore-api';
 
 import { AppComponent } from './app.component';
+import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { RegisterComponent } from './register/register.component';
 import { TokenService } from './token.service';
 
@@ -22,6 +31,12 @@ import { TokenService } from './token.service';
                 component: RegisterComponent
             }
         ]),
+        FlexLayoutModule,
+        MatIconModule,
+        MatListModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatButtonModule,
         StoreModule.forRoot({}),
         EffectsModule.forRoot([]),
         NgrxComponentModelFormDefinitionsModule,
@@ -30,6 +45,7 @@ import { TokenService } from './token.service';
     ],
     declarations: [
         AppComponent,
+        MenuItemsComponent,
         RegisterComponent
     ],
     providers: [

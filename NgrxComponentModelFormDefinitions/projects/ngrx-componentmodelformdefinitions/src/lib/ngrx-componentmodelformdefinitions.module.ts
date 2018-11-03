@@ -15,6 +15,8 @@ import { FormDefinitionsEffects } from './form-definitions.effects';
         NgxNetCoreApiModule
     ],
     declarations: [],
-    exports: []
+    exports: [
+        NgxNetCoreApiModule
+    ]
 })
 export class NgrxComponentModelFormDefinitionsModule { }

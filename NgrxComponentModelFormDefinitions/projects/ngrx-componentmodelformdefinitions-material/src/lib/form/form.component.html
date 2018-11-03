@@ -1,4 +1,4 @@
 <form *ngIf="isLoaded" [formGroup]="formGroup" (submit)="onSubmit()">
     <dynamic-material-form [group]="formGroup" [model]="formModel"></dynamic-material-form>
-    <button mat-button type="submit" [disabled]="!formGroup.valid">{{submitButtonLabel}}</button>
+    <button mat-raised-button type="submit" color="primary" [disabled]="!formGroup.valid">{{submitButtonLabel}}</button>
 </form>
