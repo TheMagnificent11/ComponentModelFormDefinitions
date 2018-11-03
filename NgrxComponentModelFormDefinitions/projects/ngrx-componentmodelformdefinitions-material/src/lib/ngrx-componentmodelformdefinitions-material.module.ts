@@ -20,7 +20,11 @@ import { FormComponent } from './form/form.component';
     declarations: [FormComponent],
     providers: [],
     exports: [
-        FormComponent
+        FormComponent,
+        ReactiveFormsModule,
+        StoreModule,
+        DynamicFormsCoreModule,
+        DynamicFormsMaterialUIModule
     ]
 })
 export class NgrxComponentmodelFormDefinitionsMaterialModule { }

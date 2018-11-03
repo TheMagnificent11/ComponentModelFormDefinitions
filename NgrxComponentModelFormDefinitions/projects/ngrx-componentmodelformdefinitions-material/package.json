@@ -23,6 +23,7 @@
     "@angular/cdk": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
     "@angular/forms": "^6.0.0-rc.0 || ^6.0.0",
+    "@angular/material": "^6.0.0-rc.0 || ^6.0.0",
     "@ng-dynamic-forms/core": "^6.2.0",
     "@ng-dynamic-forms/ui-material": "^6.2.0",
     "@ngrx/store": "^6.1.0",
