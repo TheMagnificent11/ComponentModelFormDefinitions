@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Reflection;
 
 namespace ComponentModelFormDefinitions
@@ -37,6 +37,36 @@ namespace ComponentModelFormDefinitions
             formDefinition.FieldDefinitions = fieldDefinitions;
 
             return formDefinition;
+        }
+
+        /// <summary>
+        /// Gets all the form defintions (from classes with <see cref="RequestModelAttribute"/> set) in the provided <see cref="Assembly"/>
+        /// </summary>
+        /// <param name="modelsAssembly">Models assembly containing classes with <see cref="RequestModelAttribute"/></param>
+        /// <returns>An enumerable collection of <see cref="FormDefinition"/> objects</returns>
+        public IEnumerable<FormDefinition> GetFormDefintions(Assembly modelsAssembly)
+        {
+            if (modelsAssembly == null) throw new ArgumentNullException(nameof(modelsAssembly));
+
+            var formDefintions = new List<FormDefinition>();
+            var requestTypes = GetRequestTypes(modelsAssembly);
+
+            requestTypes
+                .ToList()
+                .ForEach(i => formDefintions.Add(GetFormDefinition(i)));
+
+            return formDefintions;
+        }
+
+        private static IEnumerable<Type> GetRequestTypes(Assembly assembly)
+        {
+            foreach (Type type in assembly.GetTypes())
+            {
+                if (type.GetCustomAttributes(typeof(RequestModelAttribute), true).Length > 0)
+                {
+                    yield return type;
+                }
+            }
         }
 
         private static FieldDefinition GenerateFieldDefinition(PropertyInfo property)
