@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Angular module using NGRX to retrieve form definitions from ASP.Net Core API with the ComponentModelFormDefinitions NuGet package",
   "keywords": [
-    "Angular6",
+    "Angular7",
     "reactive-forms",
     "ngrx",
     "form-builder",
@@ -18,14 +18,14 @@
     "url": "https://github.com/TheMagnificent11/ComponentModelFormDefinitions.git"
   },
   "peerDependencies": {
-    "@angular/animations": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/cdk": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/forms": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/material": "^6.0.0-rc.0 || ^6.0.0",
-    "@ng-dynamic-forms/core": "^6.2.0",
-    "@ng-dynamic-forms/ui-material": "^6.2.0",
+    "@angular/animations": "^7.0.0",
+    "@angular/common": "^7.0.0",
+    "@angular/cdk": "^7.0.0",
+    "@angular/core": "^7.0.0",
+    "@angular/forms": "^7.0.0",
+    "@angular/material": "^7.0.0",
+    "@ng-dynamic-forms/core": "^7.0.1",
+    "@ng-dynamic-forms/ui-material": "^7.0.1",
     "@ngrx/store": "^6.1.0",
     "angular2-text-mask": "^9.0.0",
     "ngrx-componentmodelformdefinitions": "1.1.2"
