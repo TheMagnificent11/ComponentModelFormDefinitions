@@ -22,7 +22,19 @@ export class RegisterComponent implements OnInit {
         if (!request || !request.email) return;
 
         this.api.post('users', request)
-            .subscribe(() => alert('yay'), () => alert('boo'));
+            .subscribe(() => this.showRequest(request), () => alert('boo'));
+    }
+
+    private showRequest(request: RegistrationRequest): void {
+        const message = `
+            Given Name: ${request.givenName}\n
+            Surname: ${request.surname}\n
+            Email: ${request.email}\n
+            Password: ${request.password}\n
+            Confirm Password: ${request.confirmPassword}
+        `;
+
+        alert(message);
     }
 
 }

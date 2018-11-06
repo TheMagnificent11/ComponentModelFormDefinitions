@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Angular module using NGRX to retrieve form definitions from ASP.Net Core API with the ComponentModelFormDefinitions NuGet package",
   "keywords": [
-    "Angular6",
+    "Angular7",
     "reactive-forms",
     "ngrx",
     "form-builder"
@@ -17,10 +17,10 @@
     "url": "https://github.com/TheMagnificent11/ComponentModelFormDefinitions.git"
   },
   "peerDependencies": {
-    "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-    "@ngrx/effects": "^6.1.0",
-    "@ngrx/store": "^6.1.0",
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0",
+    "@ngrx/effects": "^6.1.2",
+    "@ngrx/store": "^6.1.2",
     "ngx-netcore-api": "0.0.5"
   }
 }
