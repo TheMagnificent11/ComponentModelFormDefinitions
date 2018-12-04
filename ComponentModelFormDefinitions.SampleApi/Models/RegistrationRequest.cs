@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using ComponentModelFormDefinitions.SampleApi.Domain;
 
 namespace ComponentModelFormDefinitions.SampleApi.Models
 {
@@ -6,15 +7,15 @@ namespace ComponentModelFormDefinitions.SampleApi.Models
     public class RegistrationRequest
     {
         [Display(Name = "Given Name")]
-        [MaxLength(100)]
+        [MaxLength(User.MaxLengths.GiveName)]
         [Required(ErrorMessage = "Given Name is required")]
         public string GivenName { get; set; }
 
-        [MaxLength(100)]
+        [MaxLength(User.MaxLengths.Surname)]
         [Required(ErrorMessage = "Surname is required")]
         public string Surname { get; set; }
 
-        [MaxLength(255)]
+        [MaxLength(User.MaxLengths.Email)]
         [Required(ErrorMessage = "Email is required")]
         [EmailAddress(ErrorMessage = "Invalid email address")]
         public string Email { get; set; }

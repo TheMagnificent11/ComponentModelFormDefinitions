@@ -1,7 +1,9 @@
 ﻿using System.Net;
+using ComponentModelFormDefinitions.SampleApi.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
@@ -51,6 +53,8 @@ namespace ComponentModelFormDefinitions.SampleApi
         {
             ConfigureCors(services);
             ConfigureSwagger(services);
+
+            services.AddDbContext<DatabaseContext>(opt => opt.UseInMemoryDatabase("ComponentModelFormDefintionsSample"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
