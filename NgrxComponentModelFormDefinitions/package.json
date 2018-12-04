@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-libs": "ng build ngrx-componentmodelformdefinitions && ng build ngrx-componentmodelformdefinitions-material"
+    "build-libs": "ng build ngrx-componentmodelformdefinitions && ng build ngrx-componentmodelformdefinitions-material",
+    "generate-api": "swagger-angular-generator -s swagger.json -d src/app/api"
   },
   "private": true,
   "dependencies": {
@@ -53,6 +54,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^4.1.0",
     "protractor": "~5.4.0",
+    "swagger-angular-generator": "^2.2.1",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",

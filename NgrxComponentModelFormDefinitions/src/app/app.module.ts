@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {
     MatButtonModule,
-    MatIconModule,
     MatListModule,
     MatSidenavModule,
     MatToolbarModule
@@ -37,7 +36,6 @@ import { TokenService } from './token.service';
             }
         ]),
         FlexLayoutModule,
-        MatIconModule,
         MatListModule,
         MatToolbarModule,
         MatSidenavModule,
