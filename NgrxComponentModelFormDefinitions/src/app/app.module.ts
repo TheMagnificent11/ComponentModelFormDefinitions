@@ -18,6 +18,7 @@ import { NgxNetCoreApiModule, BASE_URL, AUTHORIZATION_TOKEN_SERVICE } from 'ngx-
 
 import { AppComponent } from './app.component';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
+import { UsersListComponent } from './users-list/users-list.component';
 import { RegisterComponent } from './register/register.component';
 import { TokenService } from './token.service';
 
@@ -28,6 +29,10 @@ import { TokenService } from './token.service';
         RouterModule.forRoot([
             {
                 path: '',
+                component: UsersListComponent
+            },
+            {
+                path: 'register',
                 component: RegisterComponent
             }
         ]),
@@ -46,6 +51,7 @@ import { TokenService } from './token.service';
     declarations: [
         AppComponent,
         MenuItemsComponent,
+        UsersListComponent,
         RegisterComponent
     ],
     providers: [
