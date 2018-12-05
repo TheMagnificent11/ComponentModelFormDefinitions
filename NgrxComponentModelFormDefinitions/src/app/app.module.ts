@@ -15,6 +15,9 @@ import { NgrxComponentModelFormDefinitionsModule, FORM_DEFINTIONS_API_ROUTE } fr
 import { NgrxComponentmodelFormDefinitionsMaterialModule } from 'ngrx-componentmodelformdefinitions-material';
 import { NgxNetCoreApiModule, BASE_URL, AUTHORIZATION_TOKEN_SERVICE } from 'ngx-netcore-api';
 
+import { UsersGetModule } from './api/store/users/usersGet/usersGet.module';
+import { UsersPostModule} from './api/store/users/usersPost/usersPost.module';
+
 import { AppComponent } from './app.component';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { UsersListComponent } from './users-list/users-list.component';
@@ -44,7 +47,9 @@ import { TokenService } from './token.service';
         EffectsModule.forRoot([]),
         NgrxComponentModelFormDefinitionsModule,
         NgrxComponentmodelFormDefinitionsMaterialModule,
-        NgxNetCoreApiModule
+        NgxNetCoreApiModule,
+        UsersGetModule,
+        UsersPostModule
     ],
     declarations: [
         AppComponent,

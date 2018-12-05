@@ -11,15 +11,15 @@ import {HttpErrorResponse} from '@angular/common/http';
 import * as actions from './actions';
 
 export interface UsersPostState {
-  data: void | null;
+  success: boolean;
   loading: boolean;
   error: HttpErrorResponse | null;
 }
 
 export const initialUsersPostState: UsersPostState = {
-  data: null,
+  success: false,
   loading: false,
-  error: null,
+  error: null
 };
 
 export const selectorName = 'Users_UsersPost';
@@ -29,9 +29,9 @@ export function UsersPostReducer(
   state: UsersPostState = initialUsersPostState,
   action: actions.UsersPostAction): UsersPostState {
   switch (action.type) {
-    case actions.Actions.START: return {...state, loading: true, error: null};
-    case actions.Actions.SUCCESS: return {...state, data: action.payload, loading: false};
-    case actions.Actions.ERROR: return {...state, error: action.payload, loading: false};
+    case actions.Actions.START: return {...state, loading: true, success: false, error: null};
+    case actions.Actions.SUCCESS: return {...state, success: true, loading: false};
+    case actions.Actions.ERROR: return {...state, success: false, error: action.payload, loading: false};
     default: return state;
   }
 }

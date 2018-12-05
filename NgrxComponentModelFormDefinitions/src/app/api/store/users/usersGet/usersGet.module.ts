@@ -8,6 +8,7 @@
 import {NgModule} from '@angular/core';
 import {EffectsModule as NgrxEffectsModule} from '@ngrx/effects';
 import {StoreModule as NgrxStoreModule} from '@ngrx/store';
+import {NgxNetCoreApiModule} from 'ngx-netcore-api';
 
 import {UsersService} from '../../../controllers/Users';
 
@@ -19,6 +20,7 @@ import {selectorName} from './states/reducers';
   imports: [
     NgrxStoreModule.forFeature(selectorName, UsersGetReducer),
     NgrxEffectsModule.forFeature([UsersGetEffects]),
+    NgxNetCoreApiModule
   ],
   providers: [
     UsersService,
