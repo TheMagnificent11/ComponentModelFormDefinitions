@@ -43,7 +43,7 @@ namespace ComponentModelFormDefinitions.SampleApi.Controllers
                 return BadRequest(new ValidationProblemDetails(ModelState));
             }
 
-            var newUser = Domain.User.Register(request.Email, request.GivenName, request.Surname, request.Password);
+            var newUser = Domain.User.Register(request.Email, request.GivenName, request.Surname);
             Context.Users.Add(newUser);
             await Context.SaveChangesAsync();
 

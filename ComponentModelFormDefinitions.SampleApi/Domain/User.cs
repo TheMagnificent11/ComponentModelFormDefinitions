@@ -15,8 +15,7 @@ namespace ComponentModelFormDefinitions.SampleApi.Domain
         public static User Register(
             string email,
             string givenName,
-            string surname,
-            string password)
+            string surname)
         {
             return new User
             {
