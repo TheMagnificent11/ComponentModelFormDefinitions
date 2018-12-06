@@ -5,29 +5,29 @@
  * undefined
  */
 
-import {HttpErrorResponse} from '@angular/common/http';
-import {Action} from '@ngrx/store';
-import {UsersPostParams} from '../../../../controllers/Users';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Action } from '@ngrx/store';
+import { RegistrationRequest } from '../../../../model';
 
-export enum Actions {
-  START = '[Users usersPost] Start',
-  SUCCESS = '[Users usersPost] Success',
-  ERROR = '[Users usersPost] Error',
+export enum PostUsersActions {
+    POST_USERS = '[Users usersPost] Start',
+    POST_USERS_SUCCESS = '[Users usersPost] Success',
+    POST_USERS_ERROR = '[Users usersPost] Error',
 }
 
-export class Start implements Action {
-  readonly type = Actions.START;
-  constructor(public payload: UsersPostParams) {}
+export class PostUsersAction implements Action {
+    readonly type = PostUsersActions.POST_USERS;
+    constructor(public payload: RegistrationRequest) { }
 }
 
-export class Success implements Action {
-  readonly type = Actions.SUCCESS;
-  constructor(public payload: void) {}
+export class PostUsersSuccessAction implements Action {
+    readonly type = PostUsersActions.POST_USERS_SUCCESS;
+    constructor(public payload: void) { }
 }
 
-export class Error implements Action {
-  readonly type = Actions.ERROR;
-  constructor(public payload: HttpErrorResponse) {}
+export class PostUsersErrorAction implements Action {
+    readonly type = PostUsersActions.POST_USERS_ERROR;
+    constructor(public payload: HttpErrorResponse) { }
 }
 
-export type UsersPostAction = Start | Success | Error;
+export type UsersPostAction = PostUsersAction | PostUsersSuccessAction | PostUsersErrorAction;

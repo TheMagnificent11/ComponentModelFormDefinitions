@@ -5,8 +5,10 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {
     MatButtonModule,
+    MatIconModule,
     MatListModule,
     MatSidenavModule,
+    MatTableModule,
     MatToolbarModule
 } from '@angular/material';
 import { StoreModule } from '@ngrx/store';
@@ -15,14 +17,16 @@ import { NgrxComponentModelFormDefinitionsModule, FORM_DEFINTIONS_API_ROUTE } fr
 import { NgrxComponentmodelFormDefinitionsMaterialModule } from 'ngrx-componentmodelformdefinitions-material';
 import { NgxNetCoreApiModule, BASE_URL, AUTHORIZATION_TOKEN_SERVICE } from 'ngx-netcore-api';
 
-import { UsersGetModule } from './api/store/users/usersGet/usersGet.module';
-import { UsersPostModule} from './api/store/users/usersPost/usersPost.module';
+import { UsersGetModule } from 'api/index';
+import { UsersPostModule } from 'api/index';
 
 import { AppComponent } from './app.component';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { RegisterComponent } from './register/register.component';
 import { TokenService } from './token.service';
+
+import { reducers, metaReducers } from './app.reducer';
 
 @NgModule({
     imports: [
@@ -39,11 +43,13 @@ import { TokenService } from './token.service';
             }
         ]),
         FlexLayoutModule,
-        MatListModule,
-        MatToolbarModule,
-        MatSidenavModule,
         MatButtonModule,
-        StoreModule.forRoot({}),
+        MatIconModule,
+        MatListModule,
+        MatSidenavModule,
+        MatTableModule,
+        MatToolbarModule,
+        StoreModule.forRoot(reducers, { metaReducers }),
         EffectsModule.forRoot([]),
         NgrxComponentModelFormDefinitionsModule,
         NgrxComponentmodelFormDefinitionsMaterialModule,

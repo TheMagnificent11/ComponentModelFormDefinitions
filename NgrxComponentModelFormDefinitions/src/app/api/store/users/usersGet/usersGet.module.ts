@@ -5,25 +5,25 @@
  * undefined
  */
 
-import {NgModule} from '@angular/core';
-import {EffectsModule as NgrxEffectsModule} from '@ngrx/effects';
-import {StoreModule as NgrxStoreModule} from '@ngrx/store';
-import {NgxNetCoreApiModule} from 'ngx-netcore-api';
+import { NgModule } from '@angular/core';
+import { EffectsModule as NgrxEffectsModule } from '@ngrx/effects';
+import { StoreModule as NgrxStoreModule } from '@ngrx/store';
+import { NgxNetCoreApiModule } from 'ngx-netcore-api';
 
-import {UsersService} from '../../../controllers/Users';
+import { UsersService } from '../../../controllers/Users';
 
-import {UsersGetEffects} from './states/effects';
-import {UsersGetReducer} from './states/reducers';
-import {selectorName} from './states/reducers';
+import { UsersGetEffects } from './states/effects';
+import { UsersGetReducer } from './states/reducers';
+import { getUsersGetStateSelectorName } from './states/reducers';
 
 @NgModule({
-  imports: [
-    NgrxStoreModule.forFeature(selectorName, UsersGetReducer),
-    NgrxEffectsModule.forFeature([UsersGetEffects]),
-    NgxNetCoreApiModule
-  ],
-  providers: [
-    UsersService,
-  ],
+    imports: [
+        NgrxStoreModule.forFeature(getUsersGetStateSelectorName, UsersGetReducer),
+        NgrxEffectsModule.forFeature([UsersGetEffects]),
+        NgxNetCoreApiModule
+    ],
+    providers: [
+        UsersService,
+    ],
 })
-export class UsersGetModule {}
+export class UsersGetModule { }

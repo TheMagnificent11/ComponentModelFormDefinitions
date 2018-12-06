@@ -13,7 +13,7 @@ export const reducers = {
     usersPost: UsersPostReducer
 };
 
-export const metaReducer: Array<MetaReducer<AppState>> = [];
+export const metaReducers: Array<MetaReducer<AppState>> = [];
 
 export const getUsersState = (state: AppState) => state.usersGet;
 export const postUsersState = (state: AppState) => state.usersPost;

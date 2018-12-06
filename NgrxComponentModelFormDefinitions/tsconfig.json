@@ -29,6 +29,9 @@
       ],
       "ngrx-componentmodelformdefinitions-material/*": [
         "dist/ngrx-componentmodelformdefinitions-material/*"
+      ],
+      "api/*": [
+        "src/app/api/*"
       ]
     }
   }

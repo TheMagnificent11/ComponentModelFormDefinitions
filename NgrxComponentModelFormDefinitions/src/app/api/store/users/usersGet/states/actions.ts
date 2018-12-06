@@ -5,29 +5,29 @@
  * undefined
  */
 
-import {HttpErrorResponse} from '@angular/common/http';
-import {Action} from '@ngrx/store';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Action } from '@ngrx/store';
 import * as __model from '../../../../model';
 
-export enum Actions {
-  START = '[Users usersGet] Start',
-  SUCCESS = '[Users usersGet] Success',
-  ERROR = '[Users usersGet] Error',
+export enum GetUsersActions {
+    GET_USERS = '[Users usersGet] Start',
+    GET_USERS_SUCCESS = '[Users usersGet] Success',
+    GET_USERS_ERROR = '[Users usersGet] Error',
 }
 
-export class Start implements Action {
-  readonly type = Actions.START;
-  constructor() {}
+export class GetUsersAction implements Action {
+    readonly type = GetUsersActions.GET_USERS;
+    constructor() { }
 }
 
-export class Success implements Action {
-  readonly type = Actions.SUCCESS;
-  constructor(public payload: __model.User[]) {}
+export class GetUsersSuccessAction implements Action {
+    readonly type = GetUsersActions.GET_USERS_SUCCESS;
+    constructor(public payload: __model.User[]) { }
 }
 
-export class Error implements Action {
-  readonly type = Actions.ERROR;
-  constructor(public payload: HttpErrorResponse) {}
+export class GetUsersErrorAction implements Action {
+    readonly type = GetUsersActions.GET_USERS_ERROR;
+    constructor(public payload: HttpErrorResponse) { }
 }
 
-export type UsersGetAction = Start | Success | Error;
+export type UsersGetAction = GetUsersAction | GetUsersSuccessAction | GetUsersErrorAction;
