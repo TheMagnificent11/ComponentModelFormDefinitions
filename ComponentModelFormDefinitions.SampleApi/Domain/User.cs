@@ -26,6 +26,15 @@ namespace ComponentModelFormDefinitions.SampleApi.Domain
             };
         }
 
+        public void Update(User newDetails)
+        {
+            if (newDetails == null) throw new ArgumentNullException(nameof(newDetails));
+
+            this.Email = newDetails.Email;
+            this.GivenName = newDetails.GivenName;
+            this.Surname = newDetails.Surname;
+        }
+
         public static class MaxLengths
         {
             public const int Email = 255;
