@@ -31,9 +31,9 @@ namespace ComponentModelFormDefinitions.SampleApi
             else
             {
                 app.UseHsts();
+                app.UseHttpsRedirection();
             }
 
-            app.UseHttpsRedirection();
             app.UseCors(CorsPlolicyName);
             app.UseSwagger();
             app.UseSwaggerUI(c =>
@@ -52,11 +52,12 @@ namespace ComponentModelFormDefinitions.SampleApi
         public static void ConfigureServices(IServiceCollection services)
         {
             ConfigureCors(services);
-            ConfigureSwagger(services);
 
             services.AddDbContext<DatabaseContext>(opt => opt.UseInMemoryDatabase("ComponentModelFormDefintionsSample"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            ConfigureSwagger(services);
 
             ConfigureProblemDetails(services);
 

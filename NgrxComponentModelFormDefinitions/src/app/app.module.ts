@@ -66,7 +66,7 @@ import { reducers, metaReducers } from './app.reducer';
     providers: [
         {
             provide: BASE_URL,
-            useValue: 'https://localhost:5001'
+            useValue: 'http://localhost:5000'
         },
         {
             provide: FORM_DEFINTIONS_API_ROUTE,
