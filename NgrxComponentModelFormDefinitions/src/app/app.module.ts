@@ -24,6 +24,7 @@ import { AppComponent } from './app.component';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { RegisterComponent } from './register/register.component';
+import { UserComponent } from './user/user.component';
 import { TokenService } from './token.service';
 
 import { reducers, metaReducers } from './app.reducer';
@@ -40,6 +41,10 @@ import { reducers, metaReducers } from './app.reducer';
             {
                 path: 'register',
                 component: RegisterComponent
+            },
+            {
+                path: ':id',
+                component: UserComponent
             }
         ]),
         FlexLayoutModule,
@@ -61,7 +66,8 @@ import { reducers, metaReducers } from './app.reducer';
         AppComponent,
         MenuItemsComponent,
         UsersListComponent,
-        RegisterComponent
+        RegisterComponent,
+        UserComponent
     ],
     providers: [
         {

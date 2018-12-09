@@ -12,7 +12,7 @@ import { AppState, getUsers } from '../app.reducer';
 })
 export class UsersListComponent implements OnInit, OnDestroy {
 
-    displayedColumns: string[] = ['email', 'givenName', 'surname'];
+    displayedColumns: string[] = ['email', 'givenName', 'surname', 'actions'];
     data: Array<User> = [];
 
     private alive = true;
@@ -33,5 +33,9 @@ export class UsersListComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
         this.alive = false;
     }
+
+    getUserLink(user: User): string {
+        return `/${user.id}`;
+}
 
 }
