@@ -73,8 +73,7 @@ namespace ComponentModelFormDefinitions.SampleApi.Controllers
         public async Task<IActionResult> Put(
             [FromRoute]Guid id,
             [FromBody]User user,
-            CancellationToken cancellationToken
-        )
+            CancellationToken cancellationToken)
         {
             if (user == null) throw new ArgumentNullException(nameof(user));
 
@@ -85,6 +84,24 @@ namespace ComponentModelFormDefinitions.SampleApi.Controllers
             if (isEmailInUse) return EmailInUseBadRequest(nameof(user.Email));
 
             existingUser.Update(user);
+
+            await Context.SaveChangesAsync(cancellationToken);
+
+            return Ok();
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
+        public async Task<IActionResult> Delete(
+            [FromRoute]Guid id,
+            CancellationToken cancellationToken)
+        {
+            var existingUser = await Context.Users.SingleOrDefaultAsync(i => i.Id == id, cancellationToken);
+            if (existingUser == null) return NotFound();
+
+            Context.Users.Remove(existingUser);
 
             await Context.SaveChangesAsync(cancellationToken);
 
