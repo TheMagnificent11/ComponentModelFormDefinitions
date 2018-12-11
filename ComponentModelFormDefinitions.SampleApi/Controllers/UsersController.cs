@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using ComponentModelFormDefinitions.SampleApi.Data;
-using ComponentModelFormDefinitions.SampleApi.Domain;
 using ComponentModelFormDefinitions.SampleApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,12 +16,15 @@ namespace ComponentModelFormDefinitions.SampleApi.Controllers
     [Route("[controller]")]
     public sealed class UsersController : Controller
     {
-        public UsersController(DatabaseContext context)
+        public UsersController(DatabaseContext context, IMapper mapper)
         {
             Context = context;
+            Mapper = mapper;
         }
 
         public DatabaseContext Context { get; }
+
+        public IMapper Mapper { get; }
 
         [HttpPost]
         [ProducesResponseType(200)]
@@ -43,17 +46,17 @@ namespace ComponentModelFormDefinitions.SampleApi.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(IEnumerable<User>))]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<Models.User>))]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken)
         {
             var users = await Context.Users.ToListAsync(cancellationToken);
 
-            return Ok(users);
+            return Ok(Mapper.Map<IEnumerable<Models.User>>(users));
         }
 
         [HttpGet]
         [Route("{id}")]
-        [ProducesResponseType(200, Type = typeof(User))]
+        [ProducesResponseType(200, Type = typeof(Models.User))]
         [ProducesResponseType(404)]
         public async Task<IActionResult> GetOne(
             [FromRoute]Guid id,
@@ -62,7 +65,7 @@ namespace ComponentModelFormDefinitions.SampleApi.Controllers
             var user = await Context.Users.SingleOrDefaultAsync(i => i.Id == id, cancellationToken);
             if (user == null) return NotFound();
 
-            return Ok(user);
+            return Ok(Mapper.Map<Models.User>(user));
         }
 
         [HttpPut]
@@ -72,7 +75,7 @@ namespace ComponentModelFormDefinitions.SampleApi.Controllers
         [ProducesResponseType(404)]
         public async Task<IActionResult> Put(
             [FromRoute]Guid id,
-            [FromBody]User user,
+            [FromBody]Models.User user,
             CancellationToken cancellationToken)
         {
             if (user == null) throw new ArgumentNullException(nameof(user));
@@ -83,7 +86,7 @@ namespace ComponentModelFormDefinitions.SampleApi.Controllers
             var isEmailInUse = await IsEmailInUse(user.Email, user.Id, cancellationToken);
             if (isEmailInUse) return EmailInUseBadRequest(nameof(user.Email));
 
-            existingUser.Update(user);
+            existingUser.Update(user.Email, user.GivenName, user.Surname);
 
             await Context.SaveChangesAsync(cancellationToken);
 

@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using AutoMapper;
 using ComponentModelFormDefinitions.SampleApi.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -54,6 +55,8 @@ namespace ComponentModelFormDefinitions.SampleApi
             ConfigureCors(services);
 
             services.AddDbContext<DatabaseContext>(opt => opt.UseInMemoryDatabase("ComponentModelFormDefintionsSample"));
+
+            services.AddAutoMapper();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
