@@ -18,7 +18,7 @@ import * as actions from './actions';
 @Injectable()
 export class UsersByIdDeleteEffects {
     @Effect()
-    UsersByIdDelete = this.storeActions.ofType<actions.DeleteUserAction>(actions.Actions.DELETE_USER).pipe(
+    UsersByIdDelete = this.storeActions.ofType<actions.DeleteUserAction>(actions.DeleteUserActions.DELETE_USER).pipe(
         switchMap((action: actions.DeleteUserAction) => this.usersService.usersByIdDelete(action.payload)
             .pipe(
                 map(result => new actions.DeleteUserSuccessAction()),

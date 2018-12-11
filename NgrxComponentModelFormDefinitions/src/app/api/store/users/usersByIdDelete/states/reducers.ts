@@ -30,9 +30,9 @@ export function UsersByIdDeleteReducer(
   state: UsersByIdDeleteState = initialUsersByIdDeleteState,
   action: actions.UsersByIdDeleteAction): UsersByIdDeleteState {
   switch (action.type) {
-    case actions.Actions.DELETE_USER: return {...state, loading: true, success: false, error: null};
-    case actions.Actions.DELETE_USER_SUCCESS: return {...state, success: true, loading: false};
-    case actions.Actions.DELETE_USER_ERROR: return {...state, success: false, error: action.payload, loading: false};
+    case actions.DeleteUserActions.DELETE_USER: return {...state, loading: true, success: false, error: null};
+    case actions.DeleteUserActions.DELETE_USER_SUCCESS: return {...state, success: true, loading: false};
+    case actions.DeleteUserActions.DELETE_USER_ERROR: return {...state, success: false, error: action.payload, loading: false};
     default: return state;
   }
 }

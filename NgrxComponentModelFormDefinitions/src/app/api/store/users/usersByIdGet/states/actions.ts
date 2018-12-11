@@ -9,24 +9,24 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Action } from '@ngrx/store';
 import * as __model from '../../../../model';
 
-export enum Actions {
+export enum GetUserActions {
     GET_USER = '[Users usersByIdGet] Start',
     GET_USER_SUCCESS = '[Users usersByIdGet] Success',
     GET_USER_ERROR = '[Users usersByIdGet] Error',
 }
 
 export class GetUserAction implements Action {
-    readonly type = Actions.GET_USER;
+    readonly type = GetUserActions.GET_USER;
     constructor(public payload: string) { }
 }
 
 export class GetUserSuccessAction implements Action {
-    readonly type = Actions.GET_USER_SUCCESS;
+    readonly type = GetUserActions.GET_USER_SUCCESS;
     constructor(public payload: __model.User) { }
 }
 
 export class GetUserErrorAction implements Action {
-    readonly type = Actions.GET_USER_ERROR;
+    readonly type = GetUserActions.GET_USER_ERROR;
     constructor(public payload: HttpErrorResponse) { }
 }
 

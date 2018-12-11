@@ -18,7 +18,7 @@ import * as actions from './actions';
 @Injectable()
 export class UsersByIdPutEffects {
     @Effect()
-    UsersByIdPut = this.storeActions.ofType<actions.PutUserAction>(actions.Actions.PUT_USER).pipe(
+    UsersByIdPut = this.storeActions.ofType<actions.PutUserAction>(actions.PutUserActions.PUT_USER).pipe(
         switchMap((action: actions.PutUserAction) => this.usersService.usersByIdPut(action.payload)
             .pipe(
                 map(result => new actions.PutUserSuccessAction()),

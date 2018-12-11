@@ -18,7 +18,7 @@ import * as actions from './actions';
 @Injectable()
 export class UsersByIdGetEffects {
     @Effect()
-    UsersByIdGet = this.storeActions.ofType<actions.GetUserAction>(actions.Actions.GET_USER).pipe(
+    UsersByIdGet = this.storeActions.ofType<actions.GetUserAction>(actions.GetUserActions.GET_USER).pipe(
         switchMap((action: actions.GetUserAction) => this.usersService.usersByIdGet(action.payload)
             .pipe(
                 map(result => new actions.GetUserSuccessAction(result)),

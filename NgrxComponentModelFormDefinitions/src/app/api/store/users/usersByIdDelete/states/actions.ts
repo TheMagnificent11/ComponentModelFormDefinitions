@@ -8,24 +8,24 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Action } from '@ngrx/store';
 
-export enum Actions {
+export enum DeleteUserActions {
     DELETE_USER = '[Users usersByIdDelete] Start',
     DELETE_USER_SUCCESS = '[Users usersByIdDelete] Success',
     DELETE_USER_ERROR = '[Users usersByIdDelete] Error'
 }
 
 export class DeleteUserAction implements Action {
-    readonly type = Actions.DELETE_USER;
+    readonly type = DeleteUserActions.DELETE_USER;
     constructor(public payload: string) { }
 }
 
 export class DeleteUserSuccessAction implements Action {
-    readonly type = Actions.DELETE_USER_SUCCESS;
+    readonly type = DeleteUserActions.DELETE_USER_SUCCESS;
     constructor() { }
 }
 
 export class DeleteUserErrorAction implements Action {
-    readonly type = Actions.DELETE_USER_ERROR;
+    readonly type = DeleteUserActions.DELETE_USER_ERROR;
     constructor(public payload: HttpErrorResponse) { }
 }
 

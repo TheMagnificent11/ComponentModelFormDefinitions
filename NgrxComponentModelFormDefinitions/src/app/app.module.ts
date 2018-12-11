@@ -17,8 +17,13 @@ import { NgrxComponentModelFormDefinitionsModule, FORM_DEFINTIONS_API_ROUTE } fr
 import { NgrxComponentmodelFormDefinitionsMaterialModule } from 'ngrx-componentmodelformdefinitions-material';
 import { NgxNetCoreApiModule, BASE_URL, AUTHORIZATION_TOKEN_SERVICE } from 'ngx-netcore-api';
 
-import { UsersGetModule } from 'api/index';
-import { UsersPostModule } from 'api/index';
+import {
+    UsersGetModule,
+    UsersPostModule,
+    UsersByIdGetModule,
+    UsersByIdPutModule,
+    UsersByIdDeleteModule
+} from 'api/index';
 
 import { AppComponent } from './app.component';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
@@ -60,7 +65,10 @@ import { reducers, metaReducers } from './app.reducer';
         NgrxComponentmodelFormDefinitionsMaterialModule,
         NgxNetCoreApiModule,
         UsersGetModule,
-        UsersPostModule
+        UsersPostModule,
+        UsersByIdGetModule,
+        UsersByIdPutModule,
+        UsersByIdDeleteModule
     ],
     declarations: [
         AppComponent,

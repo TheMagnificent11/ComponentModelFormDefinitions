@@ -30,9 +30,9 @@ export function UsersByIdGetReducer(
   state: UsersByIdGetState = initialUsersByIdGetState,
   action: actions.UsersByIdGetAction): UsersByIdGetState {
   switch (action.type) {
-    case actions.Actions.GET_USER: return {...state, loading: true, error: null};
-    case actions.Actions.GET_USER_SUCCESS: return {...state, data: action.payload, loading: false};
-    case actions.Actions.GET_USER_ERROR: return {...state, error: action.payload, loading: false};
+    case actions.GetUserActions.GET_USER: return {...state, loading: true, error: null};
+    case actions.GetUserActions.GET_USER_SUCCESS: return {...state, data: action.payload, loading: false};
+    case actions.GetUserActions.GET_USER_ERROR: return {...state, error: action.payload, loading: false};
     default: return state;
   }
 }
