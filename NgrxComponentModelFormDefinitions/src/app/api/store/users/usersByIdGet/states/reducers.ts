@@ -23,8 +23,8 @@ export const initialUsersByIdGetState: UsersByIdGetState = {
   error: null,
 };
 
-export const selectorName = 'Users_UsersByIdGet';
-export const getUsersByIdGetStateSelector = createFeatureSelector<UsersByIdGetState>(selectorName);
+export const getUserStateSelectorName = 'Users_UsersByIdGet';
+export const getUsersByIdGetStateSelector = createFeatureSelector<UsersByIdGetState>(getUserStateSelectorName);
 
 export function UsersByIdGetReducer(
   state: UsersByIdGetState = initialUsersByIdGetState,

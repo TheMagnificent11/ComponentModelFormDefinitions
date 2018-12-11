@@ -5,27 +5,25 @@
  * undefined
  */
 
-import {NgModule} from '@angular/core';
-import {EffectsModule as NgrxEffectsModule} from '@ngrx/effects';
-import {StoreModule as NgrxStoreModule} from '@ngrx/store';
+import { NgModule } from '@angular/core';
+import { EffectsModule as NgrxEffectsModule } from '@ngrx/effects';
+import { StoreModule as NgrxStoreModule } from '@ngrx/store';
+import { NgxNetCoreApiModule } from 'ngx-netcore-api';
 
-import {UsersService} from '../../../controllers/Users';
-import {FormsSharedModule} from '../../forms-shared.module';
-import {UsersByIdGetFormService} from './usersByIdGet.service';
+import { UsersService } from '../../../controllers/Users';
 
-import {UsersByIdGetEffects} from './states/effects';
-import {UsersByIdGetReducer} from './states/reducers';
-import {selectorName} from './states/reducers';
+import { UsersByIdGetEffects } from './states/effects';
+import { UsersByIdGetReducer } from './states/reducers';
+import { getUserStateSelectorName } from './states/reducers';
 
 @NgModule({
-  imports: [
-    FormsSharedModule,
-    NgrxStoreModule.forFeature(selectorName, UsersByIdGetReducer),
-    NgrxEffectsModule.forFeature([UsersByIdGetEffects]),
-  ],
-  providers: [
-    UsersService,
-    UsersByIdGetFormService,
-  ],
+    imports: [
+        NgrxStoreModule.forFeature(getUserStateSelectorName, UsersByIdGetReducer),
+        NgrxEffectsModule.forFeature([UsersByIdGetEffects]),
+        NgxNetCoreApiModule
+    ],
+    providers: [
+        UsersService
+    ],
 })
-export class UsersByIdGetModule {}
+export class UsersByIdGetModule { }
