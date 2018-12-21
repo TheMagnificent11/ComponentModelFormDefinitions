@@ -34,8 +34,4 @@ export class UsersListComponent implements OnInit, OnDestroy {
         this.alive = false;
     }
 
-    getUserLink(user: User): string {
-        return `/${user.id}`;
-}
-
 }

@@ -24,7 +24,7 @@
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let row">
-            <a [routerLink]="getUserLink(row)" mat-button color="primary">
+            <a [routerLink]="['/', row.id]" mat-button color="primary">
                 <mat-icon>edit</mat-icon>
             </a>
             <button mat-button color="warn">
